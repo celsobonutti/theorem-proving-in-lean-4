@@ -19,7 +19,7 @@ def test : List Type := [Nat, String, Bool]
 
 def y := List.map List test
 
-def to_product (x : List Type) {p : x.length > 0} : Type :=
+def to_product (x : List Type) (p : x.length > 0 := by decide) : Type :=
   match x, p  with
   | t :: ts, _ =>
     if proof : ts.length > 0 then
@@ -29,7 +29,7 @@ def to_product (x : List Type) {p : x.length > 0} : Type :=
 
 #reduce to_product y
 
-def T : Type := @to_product y (by decide)
+def T : Type := to_product y
 
 def memes : T := ([1, 2, 3, 4] , ["memes"] , [])
 

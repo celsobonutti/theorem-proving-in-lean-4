@@ -55,7 +55,7 @@ section
   variable (h₃ : c = d)
   variable (h₄ : e = 1 + d)
 
-  theorem T : a = e :=
+  theorem T₁ : a = e :=
     calc a
       _ = b     := h₁
       _ = c + 1 := h₂
@@ -63,7 +63,7 @@ section
       _ = 1 + d := Nat.add_comm d 1
       _ = e     := Eq.symm h₄
 
-  theorem T' : a = e :=
+  theorem T₂ : a = e :=
     calc
       a = e := by simp [h₁, h₂, h₃, Nat.add_comm, h₄]
 
